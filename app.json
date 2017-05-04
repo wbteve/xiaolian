@@ -1,0 +1,17 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/peer/peer",
+    "pages/block/block",
+    "pages/bind/bind",
+    "pages/score/score",
+    "pages/logs/logs",
+    "pages/IntegralResult/IntegralResult"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小链Lite",
+    "navigationBarTextStyle":"black"
+  }
+}
