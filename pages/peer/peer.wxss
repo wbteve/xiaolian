@@ -15,7 +15,7 @@ html{
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 35rpx;
+    font-size: 30rpx;
     margin: 20rpx 40rpx 20rpx 40rpx;
     padding: 30rpx 0;
 }
@@ -37,7 +37,7 @@ html{
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 35rpx;
+    font-size: 30rpx;
     margin: 0 40rpx;
     border-bottom: 1px #e3e3e3 solid;
     padding: 30rpx 0;
@@ -69,6 +69,7 @@ html{
     justify-content: space-around;
     align-items: center;
     background-color: #f8f8f8;
+    border-top: 1px #e3e3e3 solid;
 }
 
 .peerTabbar .nav{
@@ -78,6 +79,6 @@ html{
     font-size: 30rpx;
 }
 .peerTabbar .nav .navImg{
-    width: 50rpx;
-    height: 50rpx;
+    width: 80rpx;
+    height: 80rpx;
 }

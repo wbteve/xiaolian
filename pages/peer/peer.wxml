@@ -27,16 +27,16 @@
         <!--区块-->
         <view class="nav" style="background-color:{{BlockbgColor}};" bindtap="bindBlockNavTap">
             <image src="../image/blocks.png" class="navImg"></image>
-            <view class="classname">
+            <!--<view class="classname">
                 <text>区块</text>
-            </view>
+            </view>-->
         </view>
         <!--节点-->
         <view class="nav" style="background-color:{{NodebgColor}};" bindtap="bindNodeNavTap">
             <image src="../image/node.png" class="navImg"></image>
-            <view class="classname">
+            <!--<view class="classname">
                 <text>节点</text>
-            </view>
+            </view>-->
         </view>
     </view>
 

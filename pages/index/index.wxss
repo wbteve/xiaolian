@@ -99,4 +99,5 @@
   background-color: whitesmoke;
   width: 100%;
   font-size: 35rpx;
+  color: forestgreen;
 }

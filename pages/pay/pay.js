@@ -5,7 +5,7 @@ Page({
     scoreResult:0,
     hiddenLoading:true
   },
-  bindHmeViewTap:function(){
+  bindHomeViewTap:function(){
     
     wx.redirectTo({
       url: '../index/index'

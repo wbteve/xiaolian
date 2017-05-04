@@ -24,7 +24,7 @@
         </view>
     </view>
     <!--<button class="successBtn" type="primary" bindtap="bindHmeViewTap">完成</button>-->
-    <button class="successBtn" type="primary" plain>完成</button>
+    <button bindtap="bindHomeViewTap" class="successBtn" type="primary" plain>完成</button>
 
     <!--loading-->
    <loading hidden="{{hiddenLoading}}">正在加载</loading> 

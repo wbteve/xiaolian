@@ -166,7 +166,7 @@ Page({
               callerID: 'zhenghong',
               callerToken: '847768148',
               chaincodeID: '81993fe27bc13aeb9939265e758e8072b24402374b0d264ab21216f989ae29fc',
-              args: '["recharge","'+mobile+'", "0"]',
+              args: '["recharge","'+mobile+'", "100"]',
               codeLanguage: 'GO_LANG'
             },
             method: 'POST',

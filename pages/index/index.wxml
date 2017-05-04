@@ -1,4 +1,7 @@
 <!--index.wxml-->
+<scroll-view scroll-y = true >
+    
+</scroll-view>
 <view class="container">
   <view class="bind" bindtap="bindBindTap" wx:if="{{bindflag}}">请完善信息</view>
   <view class="head">

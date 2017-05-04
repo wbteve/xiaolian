@@ -119,7 +119,7 @@ Page({
           return;
         }
         wx.navigateTo({
-          url: '../IntegralResult/IntegralResult'
+          url: '../pay/pay'
         })
 
       }
