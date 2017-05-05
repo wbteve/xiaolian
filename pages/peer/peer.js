@@ -44,7 +44,7 @@ Page({
           'height':res.data.height - 1
         })
 
-        for(var i=res.data.height-1,index=0;i>res.data.height-4;i--,index++){
+        for(var i=res.data.height-1,index=0;i>res.data.height-5;i--,index++){
           
           wx.request({
             url: 'https://lite.lianlianchains.com/chain/blocks/'+i,
@@ -64,6 +64,12 @@ Page({
         }
       }
     }) 
+    setTimeout(function(){
+      that.setData({
+        hiddenLoading:true
+      })
+    },6000);
+    
 
   },
   // 事件处理

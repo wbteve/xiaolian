@@ -3,7 +3,7 @@
     
 </scroll-view>
 <view class="container">
-  <view class="bind" bindtap="bindBindTap" wx:if="{{bindflag}}">请完善信息</view>
+  <view class="bind" bindtap="bindBindTap" wx:if="{{bindflag}}">点击此处去完善信息</view>
   <view class="head">
     <view class="userinfo">
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>

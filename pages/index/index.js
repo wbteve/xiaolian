@@ -97,15 +97,19 @@ Page({
 
   },
   bindPatentTap: function () {
-    wx.showModal({
-      title: '提示',
-      content: '该业务还未开通，敬请期待！',
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        }
-      }
-    })
+    var onoff = true;
+    if(onoff){
+      onoff = false;
+      wx.showToast({
+        title: '该业务暂未开通,敬请期待！',
+        icon: 'success',
+        duration: 10000
+      })
+      setTimeout(function(){
+        wx.hideToast();
+        onoff = true;
+      },2000)
+    }
   },
   onCommenTap: function () {
     var that = this

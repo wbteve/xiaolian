@@ -13,7 +13,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    font-size: 35rpx;
+    font-size: 30rpx;
     margin: 20rpx 40rpx 20rpx 40rpx;
 }
 

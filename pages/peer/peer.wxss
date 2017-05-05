@@ -48,8 +48,12 @@ html{
 }
 
 .block .arrow{
-    color: #e3e3e3;
+    /*color: #e4e4e4;
     font-weight: bold;
+    font-size: 55rpx;*/
+    display: inline-block;
+    width: 34rpx;
+    height: 40rpx;
 }
 
 .blockitem {
