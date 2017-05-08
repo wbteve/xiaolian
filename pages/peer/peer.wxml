@@ -7,7 +7,7 @@
         <view class="block" wx:for="{{blocks}}" wx:key="stateHash">
             <text class="blockIndex">{{height - index}}</text>
             <text class="blockitem" bindtap="bindBlockTap" data-index="{{height - index}}">{{blocks[index]}}</text>
-            <image src="../image/arrow1.png" class="arrow"></image>
+            <image src="../image/arrow.png" class="arrow"></image>
             <!--<text class="arrow">
                 <image src="../image/arrow.png" class="navImg"></image>
             </text>-->

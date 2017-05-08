@@ -19,6 +19,7 @@
 
 .itemname {
     width: 100rpx;
+    font-weight: bold;
 }
 
 .item {

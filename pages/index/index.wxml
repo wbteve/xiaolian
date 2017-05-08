@@ -31,6 +31,4 @@
       <image src="{{patentQRCode}}" class="chaincode" bindtap="bindPatentTap"></image>
    </view>   
    <button class="qrcode" bindtap="bindScanTap">扫码</button>
-   <!--loading-->
-   <loading hidden="{{hiddenLoading}}">正在加载</loading> 
 </view>

@@ -14,7 +14,7 @@
         
         <!--结果状态文字-->
         <view class="resultItem">
-            <text>支付成功</text>
+            <text>交易成功</text>
         </view>
         
         <!--积分-->

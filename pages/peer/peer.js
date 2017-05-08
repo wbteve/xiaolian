@@ -68,7 +68,7 @@ Page({
       that.setData({
         hiddenLoading:true
       })
-    },6000);
+    },8000);
     
 
   },
