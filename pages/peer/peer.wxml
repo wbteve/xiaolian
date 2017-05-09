@@ -43,5 +43,5 @@
         </view>
     </view>
 
-    <loading hidden="{{hiddenLoading}}">正在加载</loading>            
+    <!--<loading hidden="{{hiddenLoading}}">正在加载</loading>            -->
 </view>

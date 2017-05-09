@@ -7,13 +7,24 @@ Page({
     isBlockShow:true,  //区块显示
     BlockbgColor:"#999999",
     NodebgColor:"f8f8f8",
-    hiddenLoading:false
+    // hiddenLoading:false
   },
-  onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
-
+  //分享模块
+  onShareAppMessage: function () {
+    return {
+      title: '链信息',
+      path: "pages/peer/peer",
+      success: function(res) {
+        // 分享成功
+      },
+      fail: function(res) {
+        // 分享失败
+      }
+    }
+  },
+  onCommenEvent:function(){
     var that = this
-    hiddenLoading:false;
+    // hiddenLoading:false;
     // 节点信息
     wx.request({
       url: 'https://lite.lianlianchains.com/network/peers',
@@ -54,11 +65,17 @@ Page({
                 'content-type': 'application/json'
             },
             success: function(res) {
-              that.data.blocks.push(res.data.stateHash)
-              that.setData({
-                'blocks':that.data.blocks,
-                hiddenLoading:true
-              })
+              if(that.data.blocks.length <= 3){
+                that.data.blocks.push(res.data.stateHash)
+                that.setData({
+                  'blocks':that.data.blocks,
+                  hiddenLoading:true
+                })
+              }
+              if(that.data.blocks.length > 3 ){
+                wx.stopPullDownRefresh();
+              }
+              
             }
           })
         }
@@ -69,8 +86,16 @@ Page({
         hiddenLoading:true
       })
     },8000);
-    
-
+  },
+  //下拉刷新
+  onPullDownRefresh: function () {
+    var that = this;
+    that.onCommenEvent();
+  },
+  onLoad:function(options){
+    // 页面初始化 options为页面跳转所带来的参数
+    var that = this;
+    that.onCommenEvent();
   },
   // 事件处理
   bindBlockTap: function(event) {

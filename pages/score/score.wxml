@@ -1,6 +1,6 @@
 <view class="container">
     <view class="tip" wx:if="{{tipflag}}">{{tip}}</view>
-    <form bindsubmit="bindSubmitTap">
+    <form report-submit bindsubmit="bindSubmitTap">
         <view class="info">
             <view class="code">
                 <image src="{{integralQRCode}}" class="chaincode"></image>

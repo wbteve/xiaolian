@@ -1,4 +1,5 @@
 // pages/score/score.js
+var utils = require('../../utils/util');
 Page({
   data:{
     hiddenLoading:true,
@@ -118,9 +119,68 @@ Page({
           }
           return;
         }
-        wx.navigateTo({
-          url: '../pay/pay'
+        console.log(event.detail.formId);
+        console.log("---------------------------");
+        var promise = new Promise(function(resolve, reject){
+          wx.request({
+            url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential', //仅为示例，并非真实的接口地址
+            data: {
+              appid: 'wx6fabc07e4965d33e' ,
+              secret: '9356f5ed37a87e5cd930f134e86adf74'
+            },
+            header: {
+                'content-type': 'application/json'
+            },
+            success: function(response) {
+              resolve(response);
+            }
+          })
+        });
+
+        promise.then(function(response){
+          wx.request({
+            url: 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token='+response.data.access_token, 
+            data: {
+              "touser": wx.getStorageSync('user').openid,  
+              "template_id": "y6FU6brbCL-oo7yfJCi55Cxb5LIWV-LhLZ_66feKrJ8", 
+              "page": "pages/index/index",          
+              "form_id": event.detail.formId,         
+              "data": {
+                  "keyword1": {
+                      "value": score + " S", 
+                      "color": "black"
+                  }, 
+                  "keyword2": {
+                      "value": utils.formatTime(new Date()), 
+                      "color": "#333333"
+                  }, 
+                  "keyword3": {
+                      "value": "积分交易", 
+                      "color": "#333333"
+                  },
+                  "keyword4": {
+                      "value": res.data.transactionID, 
+                      "color": "#333333"
+                  }  
+               },
+               "emphasis_keyword": "keyword1.DATA"
+            },
+            method: 'POST',
+            header: {
+                'content-type': 'application/json'
+            },
+            success: function(res) {
+              console.log(res.data)
+              // wx.navigateTo({
+              //   url: '../pay/pay'
+              // })
+            }
+          })
         })
+        
+        // wx.navigateTo({
+        //   url: '../pay/pay'
+        // })
 
       }
     })    

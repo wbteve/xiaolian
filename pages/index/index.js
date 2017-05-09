@@ -14,6 +14,19 @@ Page({
     patent: 0,
     patentB: 0
   },
+  //分享模块
+  onShareAppMessage: function () {
+    return {
+      title: '小链Lite',
+      path: '/pages/index/index',
+      success: function(res) {
+        // 分享成功
+      },
+      fail: function(res) {
+        // 分享失败
+      }
+    }
+  },
   //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({
