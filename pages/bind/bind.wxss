@@ -1,38 +1,38 @@
 .info {
-   display: flex;
-   flex-direction: row;
-   justify-content: flex-start; 
-   align-items: center;  
-   margin: 40rpx;  
-   padding: 20rpx;
-   border-bottom: 1px solid green; 
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 40rpx;
+  padding: 20rpx;
+  border-bottom: 1px solid green;
 }
 
 input {
-   margin-left: 50rpx; 
-   width: 300rpx;  
+  margin-left: 50rpx;
+  width: 300rpx;
 }
 
-.passCode{
-    position: relative;
+.passCode {
+  position: relative;
 }
 
 .code {
-    width: 140rpx;
-    font-size: 35rpx;
-    color: lightgray;
-    position: absolute;
-    right: 0;
+  width: 140rpx;
+  font-size: 35rpx;
+  color: lightgray;
+  position: absolute;
+  right: 0;
 }
 
 button {
-    width: 80%;
-    margin-top: 80rpx;
-    background-color: forestgreen;
+  width: 80%;
+  margin-top: 80rpx;
+  background-color: forestgreen;
 }
 
 label {
-    width: 160rpx;    
+  width: 160rpx;
 }
 
 .tip {

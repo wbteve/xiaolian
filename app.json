@@ -5,7 +5,6 @@
     "pages/block/block",
     "pages/bind/bind",
     "pages/score/score",
-    "pages/logs/logs",
     "pages/pay/pay"
   ],
   "window":{

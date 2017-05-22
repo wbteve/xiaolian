@@ -4,9 +4,8 @@ var app = getApp()
 Page({
   data: {
     hiddenLoading: true,
-    integralQRCode: "../image/qr.404.png",
-    patentQRCode: "../image/qr.404.png",
-    bindflag: false,
+    integralQRCode: "../../image/qr.404.png",
+    patentQRCode: "../../image/qr.404.png",
     userInfo: {},
     balance: 0,
     score: 0,
@@ -19,10 +18,10 @@ Page({
     return {
       title: '小链Lite',
       path: '/pages/index/index',
-      success: function(res) {
+      success: function (res) {
         // 分享成功
       },
-      fail: function(res) {
+      fail: function (res) {
         // 分享失败
       }
     }
@@ -33,42 +32,25 @@ Page({
       url: '../logs/logs'
     })
   },
+  //跳转区块列表页
   bindBlockTap: function () {
-    // var that = this;
-    // if (wx.getStorageSync('mobile') == '') {
-    //   that.setData({
-    //     'bindflag': true
-    //   })
-
-    //   return;
-    // }
     wx.navigateTo({
       url: '../peer/peer'
     })
   },
+  //跳转用户注册页
   bindBindTap: function () {
-    var that = this;
-    that.setData({
-      'bindflag': false
-    });
     wx.navigateTo({
       url: '../bind/bind'
     });
   },
+  //点击扫码触发的函数
   bindScanTap: function () {
-    var that = this
+    var that = this;
     if (wx.getStorageSync('mobile') == '') {
-
-      that.setData({
-        'bindflag': true
-      })
-      setTimeout(function () {
-        that.setData({
-          'bindflag': false
-        })
-      }
-        , 3000)
-      return
+      wx.navigateTo({
+        url: '../bind/bind'
+      });
     }
     if (wx.getStorageSync('mobile') !== '') {
       wx.scanCode({
@@ -87,8 +69,7 @@ Page({
   //二维码图片预览 => jzf
   bindPreviewTap: function () {
     var that = this;
-    console.log(111);
-    console.log(that.data.QRCodeSrc);
+    var onoff = true;
     if (wx.getStorageSync('mobile') !== '') {
       wx.previewImage({
         current: that.data.integralQRCode, // 当前图片的http链接
@@ -96,43 +77,28 @@ Page({
           that.data.integralQRCode
         ] // 需要预览的图片http链接列表
       })
-    } else {
-      that.setData({
-        bindflag: true
-      })
-      setTimeout(function () {
-        that.setData({
-          'bindflag': false
-        })
-      }
-        , 3000)
+    } else if (wx.getStorageSync('mobile') == '') {
+      wx.navigateTo({
+        url: '../bind/bind'
+      });
     }
 
   },
   bindPatentTap: function () {
-    var onoff = true;
-    if(onoff){
-      onoff = false;
-      wx.showToast({
-        title: '该业务暂未开通,敬请期待！',
-        icon: 'success',
-        duration: 10000
-      })
-      setTimeout(function(){
-        wx.hideToast();
-        onoff = true;
-      },2000)
-    }
+    wx.showToast({
+      title: '暂未开通',
+      icon: 'success',
+      image: '../../image/toast.png',
+      duration: 2000
+    })
   },
   onCommenTap: function () {
     var that = this
-    console.log(111);
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo) {
       //更新数据
       that.setData({
-        userInfo: userInfo,
-        bindflag: false
+        userInfo: userInfo
       })
     })
 
@@ -140,9 +106,7 @@ Page({
     // wx.setStorageSync('mobile', '18611426275');
     //获取数字资产 积分
     var mobile = wx.getStorageSync('mobile');
-    console.log(mobile);
     if (mobile != '') {
-
       //获取资产余额
       wx.request({
         url: 'https://lite.lianlianchains.com/chaincode/query/',
@@ -158,7 +122,6 @@ Page({
           'content-type': 'application/x-www-form-urlencoded'
         },
         success: function (res) {
-          console.log(666);
           wx.stopPullDownRefresh();
           that.setData({
             hiddenLoading: true,
@@ -166,8 +129,6 @@ Page({
             scoreB: res.data.message / 2,
             balance: res.data.message / 2
           })
-          
-
         }
       })
     }
@@ -179,19 +140,21 @@ Page({
         patentQRCode: "https://lite.lianlianchains.com/qrcode/?mobile=" + mobile + "&chaincodeID=1685b5e77273e3db96a6ebba1e0117d39ac0f1388f448e7691680927548d134b&width=102&height=102"
       })
     }
-    if(mobile == ''){
+    //关闭下拉刷新
+    if (mobile == '') {
       setTimeout(function () {
-       wx.stopPullDownRefresh();
+        wx.stopPullDownRefresh();
       }, 3000)
     }
   },
+  //下拉刷新函数
   onPullDownRefresh: function () {
     var that = this;
     that.onCommenTap();
   },
   onLoad: function () {
     var that = this;
-      that.onCommenTap();
+    that.onCommenTap();
 
   }
 
